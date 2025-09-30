@@ -43,7 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'recloud',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
+
+# Use Bootstrap 5 templates for crispy-forms
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
