@@ -9,6 +9,10 @@ ReleCloud - {{ destination }}
 <p>
 {{ destination.description }}
 </p>
+<p>
+    <a class="btn btn-primary" href="{% url 'destination_form' destination.pk %}">Edit</a>
+    <a class="btn btn-danger" href="{% url 'destination_confirm_delete' destination.pk %}">Delete</a>
+</p>
 <p>You can explore {{ destination }} on the following cruises:</p>
 <ul class="list-group">
     {% for cruise in destination.cruises.all %}

@@ -20,6 +20,24 @@ class DestinationDetailView(generic.DetailView):
     model = models.Destination
     context_object_name = 'destination'
 
+
+class DestinationCreateView(SuccessMessageMixin, generic.CreateView):
+    model = models.Destination
+    template_name = 'destination_form.html'
+    fields = ['name', 'description', 'latitude', 'longitude']
+    # success_message = 'Destination "%(name)s" created successfully.'
+
+class DestinationUpdateView(generic.UpdateView):
+    model = models.Destination
+    template_name = 'destination_form.html'
+    fields = ['name', 'description', 'latitude', 'longitude']
+    # success_message = 'Destination "%(name)s" updated successfully.'
+
+class DestinationDeleteView(generic.DeleteView):
+    model = models.Destination
+    template_name = 'destination_confirm_delete.html'
+    success_url = reverse_lazy('destinations')
+
 class CruiseDetailView(generic.DetailView):
     template_name = 'cruise_detail.html'
     model = models.Cruise
