@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/848c7bd1-df7e-4734-b20e-a31e06a25e9f/resourceGroups/d4r1/providers/Microsoft.Web/sites/recloud",
+    "appService.deploySubpath": "."
+}
