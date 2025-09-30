@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# Trusted origins for CSRF (Azure App Service URL)
+CSRF_TRUSTED_ORIGINS = [
+    "https://recloud-fybqbrcqddg2hjdt.spaincentral-01.azurewebsites.net",
+]
+
 
 # Application definition
 
