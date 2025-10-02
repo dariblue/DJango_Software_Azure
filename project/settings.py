@@ -90,7 +90,7 @@ DATABASES = {
         "NAME": "Django",
         "USER": "d4r1",
         "PASSWORD": "MSa04640",
-    "HOST": "bbdd-relecloud-d4r1.postgres.database.azure.com",
+        "HOST": "bbdd-relecloud-d4r1.postgres.database.azure.com",
         "PORT": "5432",
         "OPTIONS": {"sslmode": "require"},
     }
