@@ -85,16 +85,24 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "Django",
-        "USER": "d4r1",
-        "PASSWORD": "MSa04640",
-        "HOST": "bbdd-relecloud-d4r1.postgres.database.azure.com",
-        "PORT": "5432",
-        "OPTIONS": {"sslmode": "require"},
-    }
+   'default': {
+       "ENGINE": "django.db.backends.postgresql",
+       "NAME": "Django",
+       "USER": "d4r1",
+       "PASSWORD": "MSa04640",
+       "HOST": "bbdd-relecloud-d4r1.postgres.database.azure.com",
+       "PORT": "5432",
+       "OPTIONS": {"sslmode": "require"},
+   }
 }
+
+#para probar cosas en local:
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
 
 
 # Password validation
@@ -148,3 +156,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import os
+
+EMAIL_HOST = os.getenv("EMAIL_HOST", "smtp.gmail.com")
+EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+
+DEFAULT_INFO_EMAIL = os.getenv("DEFAULT_INFO_EMAIL", "admin@example.com")
