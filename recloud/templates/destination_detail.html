@@ -19,4 +19,32 @@ ReleCloud - {{ destination }}
     <a class="list-group-item list-group-item-action" href="{% url 'cruise_detail' cruise.id %}">{{ cruise }}</a>
     {% endfor %}
 </ul>
+
+
+<h2>Opiniones</h2>
+
+<p>
+  Valoración media: {{ destination.average_rating|floatformat:1 }} / 5
+  ({{ destination.reviews_count }} opiniones)
+</p>
+
+<p>
+  <a href="{% url 'destination_review' destination.pk %}">
+    Escribir una opinión
+  </a>
+</p>
+
+<ul>
+  {% for review in reviews %}
+    <li>
+      {{ review.rating }} / 5<br>
+      {{ review.comment|linebreaks }}<br>
+      <small>{{ review.created_at|date:"d/m/Y H:i" }}</small>
+    </li>
+  {% empty %}
+    <li>Aún no hay opiniones.</li>
+  {% endfor %}
+</ul>
+
+
 {% endblock content %}
