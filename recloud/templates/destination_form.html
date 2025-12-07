@@ -8,7 +8,7 @@ ReleCloud - Destination
 
 {% block content %}
 
-<form method="post"> 
+<form method="post" enctype="multipart/form-data"> 
     {% csrf_token %}
     <!-- {{ form.as_p }} -->
     {{ form|crispy }} 

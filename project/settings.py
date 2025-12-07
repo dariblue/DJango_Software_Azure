@@ -138,6 +138,9 @@ STATIC_URL = '/recloud/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Apunta a la carpeta de estáticos dentro de la app recloud (evita la WARNING si antes no existía BASE_DIR/"static")
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 STATICFILES_DIRS = [
     BASE_DIR / "recloud" / "static",
 ]

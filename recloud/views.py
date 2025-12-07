@@ -33,13 +33,13 @@ class DestinationDetailView(generic.DetailView):
 class DestinationCreateView(SuccessMessageMixin, generic.CreateView):
     model = models.Destination
     template_name = 'destination_form.html'
-    fields = ['name', 'description', 'latitude', 'longitude']
+    fields = ['name', 'description', 'latitude', 'longitude', 'image']
     # success_message = 'Destination "%(name)s" created successfully.'
 
 class DestinationUpdateView(generic.UpdateView):
     model = models.Destination
     template_name = 'destination_form.html'
-    fields = ['name', 'description', 'latitude', 'longitude']
+    fields = ['name', 'description', 'latitude', 'longitude', 'image']
     # success_message = 'Destination "%(name)s" updated successfully.'
 
 class DestinationDeleteView(generic.DeleteView):
