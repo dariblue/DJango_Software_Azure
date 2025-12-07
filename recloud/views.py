@@ -5,6 +5,8 @@ from django.views import generic
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.db.models import Avg, Count
+
 # LOGIN --> cuando pongamos el login, descomenta la siguiente línea
 # from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -17,8 +19,17 @@ def about(request):
     return render(request, 'about.html')
 
 def destinations(request):
-    all_destinations = models.Destination.objects.all()
-    return render(request, 'destinations.html', { 'destinations': all_destinations})
+    # all_destinations = models.Destination.objects.all()
+    # return render(request, 'destinations.html', { 'destinations': all_destinations})
+    popular_destinations = (
+        models.Destination.objects
+        .annotate(
+            avg_rating=Avg('reviews__rating'),
+            num_reviews=Count('reviews')        
+        )
+        .order_by('-avg_rating', '-num_reviews')
+    )
+    return render(request, 'destinations.html', {'destinations': popular_destinations})
 
 class DestinationDetailView(generic.DetailView):
     template_name = 'destination_detail.html'

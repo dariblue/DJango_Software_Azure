@@ -15,7 +15,15 @@ If you can imagine it, we travel to it! Below is our list of confirmed destinati
 <ul class="list-group">
     {% for destination in destinations %}
     <a class="list-group-item list-group-item-action" href="{% url 'destination_detail' destination.id %}">
-        {{ destination }}
+        <span>{{ destination }}</span>
+        <small class="text-muted">
+            {% if destination.avg_rating %}
+                {{ destination.avg_rating|floatformat:1 }}/5
+                ({{ destination.num_reviews }} review{{ destination.num_reviews|pluralize }})
+            {% else %}
+                No reviews yet
+            {% endif %}
+        </small>
     </a>
     {% endfor %}
 </ul>
