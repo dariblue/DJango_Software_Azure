@@ -15,6 +15,9 @@ If you can imagine it, we travel to it! Below is our list of confirmed destinati
 <ul class="list-group">
     {% for destination in destinations %}
     <a class="list-group-item list-group-item-action" href="{% url 'destination_detail' destination.id %}">
+        {% if destination.image %}
+            <img src="{{ destination.image.url }}" alt="{{ destination.name }}" style="height: 50px; width: 50px; object-fit: cover; margin-right: 10px;">
+        {% endif %}
         {{ destination }}
     </a>
     {% endfor %}
