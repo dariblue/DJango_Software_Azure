@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title %}
-ReleCloud - Home
+ReleCloud - Inicio
 {% endblock %}
 
 {% block content %}
 <div class="p-4 bg-light rounded-3 shadow-sm">
-    <h1 class="display-5">Welcome to ReleCloud Space Tourism</h1>
+    <h1 class="display-5">Bienvenido a ReleCloud Turismo Espacial</h1>
     <p class="lead">
-        We are the premier space travel company. We have scheduled launches across the solar system. You can explore our destinations, book luxury cruises, or signup to receive more information about our upcoming launches.
+        Somos la compañia lider en viajes y cruceros espaciales. Tenemos programados lanzamientos y expediciones por todo el sistema solar. Puedes consultar nuestros destinos confirmados o solicitar mas informacion para apuntarte al proximo viaje.
     </p>
     <hr class="my-4">
-    <p>Ready to start your adventure beyond Earth?</p>
-    <a class="btn btn-primary btn-lg" href="{% url 'destinations' %}" role="button">Explore Destinations</a>
-    <a class="btn btn-outline-secondary btn-lg ms-2" href="{% url 'info_request' %}" role="button">Request Information</a>
+    <p>¿Listo para explorar el espacio exterior?</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'destinations' %}" role="button">Ver Destinos</a>
+    <a class="btn btn-outline-secondary btn-lg ms-2" href="{% url 'info_request' %}" role="button">Pedir Informacion</a>
 </div>
 {% endblock content %}

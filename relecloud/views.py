@@ -4,7 +4,7 @@ from django.views import generic
 from django.contrib.messages.views import SuccessMessageMixin
 from . import models
 
-# Simple views
+# Vistas sencillas
 def index(request):
     return render(request, 'index.html')
 
@@ -15,7 +15,7 @@ def destinations(request):
     all_destinations = models.Destination.objects.all()
     return render(request, 'destinations.html', {'destinations': all_destinations})
 
-# Destination Generic Views
+# Vistas genericas de Destinos
 class DestinationDetailView(generic.DetailView):
     template_name = 'destination_detail.html'
     model = models.Destination
@@ -25,29 +25,29 @@ class DestinationCreateView(SuccessMessageMixin, generic.CreateView):
     model = models.Destination
     template_name = 'destination_form.html'
     fields = ['name', 'description', 'latitude', 'longitude']
-    success_message = 'Destination "%(name)s" created successfully.'
+    success_message = 'Destino "%(name)s" creado correctamente.'
 
 class DestinationUpdateView(SuccessMessageMixin, generic.UpdateView):
     model = models.Destination
     template_name = 'destination_form.html'
     fields = ['name', 'description', 'latitude', 'longitude']
-    success_message = 'Destination "%(name)s" updated successfully.'
+    success_message = 'Destino "%(name)s" actualizado correctamente.'
 
 class DestinationDeleteView(generic.DeleteView):
     model = models.Destination
     template_name = 'destination_confirm_delete.html'
     success_url = reverse_lazy('destinations')
 
-# Cruise Detail View
+# Vista de detalle de Crucero
 class CruiseDetailView(generic.DetailView):
     template_name = 'cruise_detail.html'
     model = models.Cruise
     context_object_name = 'cruise'
 
-# InfoRequest Generic View (CreateView, redirects to 'index', success message)
+# Vista generica de InfoRequest (CreateView, redirige a 'index' con mensaje de exito)
 class InfoRequestCreateView(SuccessMessageMixin, generic.CreateView):
     template_name = 'info_request_create.html'
     model = models.InfoRequest
     fields = ['name', 'email', 'cruise', 'notes']
     success_url = reverse_lazy('index')
-    success_message = 'Thank you, %(name)s! We have received your information request.'
+    success_message = '¡Muchas gracias, %(name)s! Hemos recibido tu solicitud de informacion.'

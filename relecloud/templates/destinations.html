@@ -1,27 +1,27 @@
 {% extends 'base.html' %}
 
 {% block title %}
-ReleCloud - Destinations
+ReleCloud - Destinos
 {% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1>Cruise Destinations</h1>
-    <a class="btn btn-primary" href="{% url 'destination_form' %}">+ Add Destination</a>
+    <h1>Destinos de Cruceros Espaciales</h1>
+    <a class="btn btn-primary" href="{% url 'destination_form' %}">+ Añadir destino</a>
 </div>
 
 <p class="lead">
-    If you can imagine it, we travel to it! Below is our list of confirmed destinations.
+    ¡Si puedes imaginarlo, viajamos hasta alli! A continuacion tienes la lista de destinos confirmados para nuestras expediciones.
 </p>
 
 <div class="list-group">
     {% for destination in destinations %}
     <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="{% url 'destination_detail' destination.id %}">
         <span class="fs-5 fw-semibold">{{ destination.name }}</span>
-        <span class="badge bg-secondary rounded-pill">View Details</span>
+        <span class="badge bg-secondary rounded-pill">Ver detalle</span>
     </a>
     {% empty %}
-    <div class="list-group-item text-muted">No destinations available.</div>
+    <div class="list-group-item text-muted">No hay destinos disponibles por el momento.</div>
     {% endfor %}
 </div>
 {% endblock content %}

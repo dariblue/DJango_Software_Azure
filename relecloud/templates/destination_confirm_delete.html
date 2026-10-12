@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-ReleCloud - Delete Destination
+ReleCloud - Confirmar eliminacion
 {% endblock title %}
 
 {% block content %}
@@ -9,15 +9,15 @@ ReleCloud - Delete Destination
     <div class="col-md-6">
         <div class="card border-danger shadow-sm">
             <div class="card-header bg-danger text-white">
-                <h3 class="h5 mb-0">Confirm Delete</h3>
+                <h3 class="h5 mb-0">Confirmar eliminacion</h3>
             </div>
             <div class="card-body">
-                <p class="lead">Are you sure you want to delete the destination <strong>"{{ object.name }}"</strong>?</p>
-                <p class="text-danger"><small>This action cannot be undone.</small></p>
+                <p class="lead">¿Estas seguro de que deseas borrar el destino <strong>"{{ object.name }}"</strong>?</p>
+                <p class="text-danger"><small>Esta accion no se puede deshacer.</small></p>
                 <form method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-danger">Confirm Delete</button>
-                    <a href="{% url 'destination_detail' object.pk %}" class="btn btn-outline-secondary ms-2">Cancel</a>
+                    <button type="submit" class="btn btn-danger">Confirmar borrado</button>
+                    <a href="{% url 'destination_detail' object.pk %}" class="btn btn-outline-secondary ms-2">Cancelar</a>
                 </form>
             </div>
         </div>

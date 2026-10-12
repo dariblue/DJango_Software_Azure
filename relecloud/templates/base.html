@@ -1,21 +1,21 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'res/css/theme.css' %}" />
     <title>
         {% block title %}
-        ReleCloud - Expand your horizons
+        ReleCloud - Expande tus horizontes
         {% endblock %}
     </title>
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-translucent-secondary">
         <a class="navbar-brand d-flex align-items-center" href="{% url 'index' %}">
-            <img src="{% static 'res/img/small-logo.png' %}" width="60" height="auto" alt="Rocket ship logo" />
-            <span class="tk-elevon ms-2">&nbsp;ReleCloud Space Tourism</span>
+            <img src="{% static 'res/img/small-logo.png' %}" width="60" height="auto" alt="Logo cohete" />
+            <span class="tk-elevon ms-2">&nbsp;ReleCloud Turismo Espacial</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
             aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,16 +25,16 @@
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    <a class="nav-link" href="{% url 'index' %}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'destinations' %}">Destinations</a>
+                    <a class="nav-link" href="{% url 'destinations' %}">Destinos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'info_request' %}">Request Info</a>
+                    <a class="nav-link" href="{% url 'info_request' %}">Pedir informacion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                    <a class="nav-link" href="{% url 'about' %}">Sobre nosotros</a>
                 </li>
             </ul>
         </div>
@@ -48,7 +48,7 @@
                         <img src="{% static 'res/img/bit_cosmos.png' %}" class="img-fluid" alt="Cosmos Bit" />
                     </div>
                     <div class="col-md-8">
-                        <h1 class="display-3 text-white">Expand your horizons</h1>
+                        <h1 class="display-3 text-white">Expande tus horizontes</h1>
                     </div>
                 </div>
             </div>
@@ -67,5 +67,9 @@
             {% endblock %}
         </div>
     </main>
+
+    <footer class="container text-center py-4 text-muted border-top mt-5">
+        <p>&copy; 2026 ReleCloud Turismo Espacial - Darío Rodríguez Pajares (Exp: 9101460)</p>
+    </footer>
 </body>
 </html>
