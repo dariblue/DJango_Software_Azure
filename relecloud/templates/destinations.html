@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ReleCloud - Destinations
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Cruise Destinations</h1>
+    <a class="btn btn-primary" href="{% url 'destination_form' %}">+ Add Destination</a>
+</div>
+
+<p class="lead">
+    If you can imagine it, we travel to it! Below is our list of confirmed destinations.
+</p>
+
+<div class="list-group">
+    {% for destination in destinations %}
+    <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="{% url 'destination_detail' destination.id %}">
+        <span class="fs-5 fw-semibold">{{ destination.name }}</span>
+        <span class="badge bg-secondary rounded-pill">View Details</span>
+    </a>
+    {% empty %}
+    <div class="list-group-item text-muted">No destinations available.</div>
+    {% endfor %}
+</div>
+{% endblock content %}

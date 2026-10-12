@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+ReleCloud - Request Information
+{% endblock title %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h1 class="h3 mb-0">Request Information</h1>
+            </div>
+            <div class="card-body">
+                <p class="lead">
+                    Fill out the form below to request information about our space cruises and destinations. Our team will contact you shortly!
+                </p>
+
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Submit Request</button>
+                        <a href="{% url 'index' %}" class="btn btn-outline-secondary btn-lg ms-2">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,70 @@
+[
+{
+  "model": "relecloud.destination",
+  "pk": 1,
+  "fields": {
+    "name": "Station-9101460",
+    "latitude": 28.5721,
+    "longitude": -80.648,
+    "description": "Estación orbital de investigación y turismo espacial de Darío Rodríguez Pajares (Exp: 9101460)."
+  }
+},
+{
+  "model": "relecloud.destination",
+  "pk": 2,
+  "fields": {
+    "name": "Moon Base Alpha",
+    "latitude": 0.674,
+    "longitude": 23.472,
+    "description": "Lujoso resort lunar con vistas inigualables a la Tierra y paseos en gravedad reducida."
+  }
+},
+{
+  "model": "relecloud.destination",
+  "pk": 3,
+  "fields": {
+    "name": "Mars Colony One",
+    "latitude": -4.5895,
+    "longitude": 137.4417,
+    "description": "Aventura en la primera colonia marciana. Exploración del cráter Gale y cañones marcianos."
+  }
+},
+{
+  "model": "relecloud.cruise",
+  "pk": 1,
+  "fields": {
+    "name": "Apollo Explorer",
+    "description": "Crucero orbital con escala en la estación y órbita lunar.",
+    "departure_date": "2026-11-01",
+    "return_date": "2026-11-15",
+    "destinations": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "relecloud.cruise",
+  "pk": 2,
+  "fields": {
+    "name": "Ares Odyssey",
+    "description": "Expedición interplanetaria de lujo hacia la colonia roja.",
+    "departure_date": "2027-01-10",
+    "return_date": "2027-03-20",
+    "destinations": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "relecloud.inforequest",
+  "pk": 1,
+  "fields": {
+    "name": "Darío Rodríguez Pajares",
+    "email": "9101460@alumnos.ufv.es",
+    "cruise": 1,
+    "notes": "Solicito información detallada sobre el embarque en Station-9101460."
+  }
+}
+]

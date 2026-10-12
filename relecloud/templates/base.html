@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'res/css/theme.css' %}" />
+    <title>
+        {% block title %}
+        ReleCloud - Expand your horizons
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-translucent-secondary">
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'index' %}">
+            <img src="{% static 'res/img/small-logo.png' %}" width="60" height="auto" alt="Rocket ship logo" />
+            <span class="tk-elevon ms-2">&nbsp;ReleCloud Space Tourism</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'destinations' %}">Destinations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'info_request' %}">Request Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main">
+        <div class="jumbotron main-header" style="background-image: url('{% static 'res/img/cosmos-db.jpeg' %}'); background-size: cover; padding: 4rem 2rem; margin-bottom: 2rem;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <img src="{% static 'res/img/bit_cosmos.png' %}" class="img-fluid" alt="Cosmos Bit" />
+                    </div>
+                    <div class="col-md-8">
+                        <h1 class="display-3 text-white">Expand your horizons</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-4">
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
+
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+</body>
+</html>

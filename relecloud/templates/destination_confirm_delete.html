@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ReleCloud - Delete Destination
+{% endblock title %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-danger shadow-sm">
+            <div class="card-header bg-danger text-white">
+                <h3 class="h5 mb-0">Confirm Delete</h3>
+            </div>
+            <div class="card-body">
+                <p class="lead">Are you sure you want to delete the destination <strong>"{{ object.name }}"</strong>?</p>
+                <p class="text-danger"><small>This action cannot be undone.</small></p>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                    <a href="{% url 'destination_detail' object.pk %}" class="btn btn-outline-secondary ms-2">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
