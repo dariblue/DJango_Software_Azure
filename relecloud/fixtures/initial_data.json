@@ -6,7 +6,7 @@
     "name": "Station-9101460",
     "latitude": 28.5721,
     "longitude": -80.648,
-    "description": "Estacion orbital de Dario Rodriguez (Exp: 9101460). Parada obligatoria para repostar combustible, tomarse un cafe en gravedad cero y contemplar la Tierra desde la cupula panorámica."
+    "description": "Estacion orbital de Dario Rodriguez (Exp: 9101460). Vistas increibles a la Tierra y parada para repostar."
   }
 },
 {
@@ -16,7 +16,7 @@
     "name": "Kepler-452b (Tierra 2.0)",
     "latitude": 44.2738,
     "longitude": 112.593,
-    "description": "El famoso exoplaneta habitable que esta a tomar por saco (a 1.400 años luz). Tiene atmosfera respirable, agua liquida y cobertura regular, pero el viaje se hace un poco largo si no te llevas peliculas descargadas."
+    "description": "La Tierra 2.0 a 1.400 años luz. Es habitable pero el viaje se hace un poco largo."
   }
 },
 {
@@ -26,7 +26,7 @@
     "name": "Europa (Oceano Bajo Hielo)",
     "latitude": -9.62,
     "longitude": 45.13,
-    "description": "Luna helada de Jupiter con un oceano subterraneo colosal. Recomendable llevar neopreno termico porque el agua esta que pela, aunque las vistas directas a los anillos de Jupiter no tienen precio."
+    "description": "Luna helada de Jupiter con oceano subterraneo. Traete abrigo porque el agua esta helada."
   }
 },
 {
@@ -34,7 +34,7 @@
   "pk": 5,
   "fields": {
     "name": "Ruta Orbital Transiberica",
-    "description": "Crucero rapido con salida desde Cabo Cañaveral, escala en la Station-9101460 y ruta hasta las aguas de Europa.",
+    "description": "Viaje rapido con escala en Station-9101460 y destino en Europa.",
     "departure_date": "2026-11-01",
     "return_date": "2026-11-15",
     "destinations": [
@@ -48,7 +48,7 @@
   "pk": 6,
   "fields": {
     "name": "Expedicion Sin Retorno a Kepler",
-    "description": "El crucero interestelar definitivo hacia la Tierra 2.0. Incluye camaras de criogenizacion de lujo, wifi cuantico y comida liofilizada de calidad.",
+    "description": "Viaje directo en camaras de criogenizacion hacia la Tierra 2.0.",
     "departure_date": "2027-01-10",
     "return_date": "2027-03-20",
     "destinations": [

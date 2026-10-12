@@ -4,7 +4,7 @@ from relecloud.models import Destination, Cruise, InfoRequest
 from datetime import date
 
 class Command(BaseCommand):
-    help = 'Carga datos iniciales obligatorios para ISW2 (3 destinos con Station-9101460, 2 cruceros, 1 info request y superuser)'
+    help = 'Carga datos iniciales obligatorios para ISW2 con descripciones breves'
 
     def handle(self, *args, **options):
         User = get_user_model()
@@ -20,35 +20,35 @@ class Command(BaseCommand):
             defaults={
                 'latitude': 28.5721,
                 'longitude': -80.6480,
-                'description': 'Estacion orbital de Dario Rodriguez (Exp: 9101460). Parada obligatoria para repostar combustible, tomarse un cafe en gravedad cero y contemplar la Tierra desde la cupula panorámica.'
+                'description': 'Estacion orbital de Dario Rodriguez (Exp: 9101460). Vistas increibles a la Tierra y parada para repostar.'
             }
         )
 
-        # 2. El exoplaneta habitable a tomar por saco
+        # 2. Exoplaneta habitable a tomar por saco
         dest2, _ = Destination.objects.update_or_create(
             name='Kepler-452b (Tierra 2.0)',
             defaults={
                 'latitude': 44.2738,
                 'longitude': 112.5930,
-                'description': 'El famoso exoplaneta habitable que esta a tomar por saco (a 1.400 años luz). Tiene atmosfera respirable, agua liquida y cobertura regular, pero el viaje se hace un poco largo si no te llevas peliculas descargadas.'
+                'description': 'La Tierra 2.0 a 1.400 años luz. Es habitable pero el viaje se hace un poco largo.'
             }
         )
 
-        # 3. Luna helada con oceano subterráneo
+        # 3. Luna helada con oceano
         dest3, _ = Destination.objects.update_or_create(
             name='Europa (Oceano Bajo Hielo)',
             defaults={
                 'latitude': -9.6200,
                 'longitude': 45.1300,
-                'description': 'Luna helada de Jupiter con un oceano subterraneo colosal. Recomendable llevar neopreno termico porque el agua esta que pela, aunque las vistas directas a los anillos de Jupiter no tienen precio.'
+                'description': 'Luna helada de Jupiter con oceano subterraneo. Traete abrigo porque el agua esta helada.'
             }
         )
 
-        # Cruceros espaciales
+        # Cruceros
         cruise1, _ = Cruise.objects.update_or_create(
             name='Ruta Orbital Transiberica',
             defaults={
-                'description': 'Crucero rapido con salida desde Cabo Cañaveral, escala en la Station-9101460 y ruta hasta las aguas de Europa.',
+                'description': 'Viaje rapido con escala en Station-9101460 y destino en Europa.',
                 'departure_date': date(2026, 11, 1),
                 'return_date': date(2026, 11, 15),
             }
@@ -58,7 +58,7 @@ class Command(BaseCommand):
         cruise2, _ = Cruise.objects.update_or_create(
             name='Expedicion Sin Retorno a Kepler',
             defaults={
-                'description': 'El crucero interestelar definitivo hacia la Tierra 2.0. Incluye camaras de criogenizacion de lujo, wifi cuantico y comida liofilizada de calidad.',
+                'description': 'Viaje directo en camaras de criogenizacion hacia la Tierra 2.0.',
                 'departure_date': date(2027, 1, 10),
                 'return_date': date(2027, 3, 20),
             }
@@ -71,8 +71,8 @@ class Command(BaseCommand):
                 name='Darío Rodríguez Pajares',
                 email='9101460@alumnos.ufv.es',
                 cruise=cruise2,
-                notes='Quisiera saber si las camaras de criogenizacion para el viaje a Kepler-452b tienen conexion para cargar el movil.'
+                notes='¿Hay wifi en las camaras de criogenizacion para Kepler?'
             )
             self.stdout.write(self.style.SUCCESS('InfoRequest de prueba creada.'))
 
-        self.stdout.write(self.style.SUCCESS('Datos iniciales cargados correctamente (Station-9101460, Kepler-452b, Europa y 2 cruceros).'))
+        self.stdout.write(self.style.SUCCESS('Datos iniciales cargados con descripciones cortas.'))
