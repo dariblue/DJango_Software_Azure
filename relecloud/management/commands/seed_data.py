@@ -14,63 +14,65 @@ class Command(BaseCommand):
         else:
             self.stdout.write('Superuser d4r1 ya existía.')
 
-        # Destinos obligatorios
-        dest1, _ = Destination.objects.get_or_create(
+        # 1. Destino obligatorio Canvas
+        dest1, _ = Destination.objects.update_or_create(
             name='Station-9101460',
             defaults={
                 'latitude': 28.5721,
                 'longitude': -80.6480,
-                'description': 'Estación orbital de investigación y turismo espacial de Darío Rodríguez Pajares (Exp: 9101460).'
+                'description': 'Estacion orbital de Dario Rodriguez (Exp: 9101460). Parada obligatoria para repostar combustible, tomarse un cafe en gravedad cero y contemplar la Tierra desde la cupula panorámica.'
             }
         )
 
-        dest2, _ = Destination.objects.get_or_create(
-            name='Moon Base Alpha',
+        # 2. El exoplaneta habitable a tomar por saco
+        dest2, _ = Destination.objects.update_or_create(
+            name='Kepler-452b (Tierra 2.0)',
             defaults={
-                'latitude': 0.6740,
-                'longitude': 23.4720,
-                'description': 'Lujoso resort lunar con vistas inigualables a la Tierra y paseos en gravedad reducida.'
+                'latitude': 44.2738,
+                'longitude': 112.5930,
+                'description': 'El famoso exoplaneta habitable que esta a tomar por saco (a 1.400 años luz). Tiene atmosfera respirable, agua liquida y cobertura regular, pero el viaje se hace un poco largo si no te llevas peliculas descargadas.'
             }
         )
 
-        dest3, _ = Destination.objects.get_or_create(
-            name='Mars Colony One',
+        # 3. Luna helada con oceano subterráneo
+        dest3, _ = Destination.objects.update_or_create(
+            name='Europa (Oceano Bajo Hielo)',
             defaults={
-                'latitude': -4.5895,
-                'longitude': 137.4417,
-                'description': 'Aventura en la primera colonia marciana. Exploración del cráter Gale y cañones marcianos.'
+                'latitude': -9.6200,
+                'longitude': 45.1300,
+                'description': 'Luna helada de Jupiter con un oceano subterraneo colosal. Recomendable llevar neopreno termico porque el agua esta que pela, aunque las vistas directas a los anillos de Jupiter no tienen precio.'
             }
         )
 
-        # Cruceros
-        cruise1, _ = Cruise.objects.get_or_create(
-            name='Apollo Explorer',
+        # Cruceros espaciales
+        cruise1, _ = Cruise.objects.update_or_create(
+            name='Ruta Orbital Transiberica',
             defaults={
-                'description': 'Crucero orbital con escala en la estación y órbita lunar.',
+                'description': 'Crucero rapido con salida desde Cabo Cañaveral, escala en la Station-9101460 y ruta hasta las aguas de Europa.',
                 'departure_date': date(2026, 11, 1),
                 'return_date': date(2026, 11, 15),
             }
         )
-        cruise1.destinations.set([dest1, dest2])
+        cruise1.destinations.set([dest1, dest3])
 
-        cruise2, _ = Cruise.objects.get_or_create(
-            name='Ares Odyssey',
+        cruise2, _ = Cruise.objects.update_or_create(
+            name='Expedicion Sin Retorno a Kepler',
             defaults={
-                'description': 'Expedición interplanetaria de lujo hacia la colonia roja.',
+                'description': 'El crucero interestelar definitivo hacia la Tierra 2.0. Incluye camaras de criogenizacion de lujo, wifi cuantico y comida liofilizada de calidad.',
                 'departure_date': date(2027, 1, 10),
                 'return_date': date(2027, 3, 20),
             }
         )
-        cruise2.destinations.set([dest1, dest3])
+        cruise2.destinations.set([dest1, dest2])
 
         # Solicitud de información de prueba
         if not InfoRequest.objects.filter(email='9101460@alumnos.ufv.es').exists():
             InfoRequest.objects.create(
                 name='Darío Rodríguez Pajares',
                 email='9101460@alumnos.ufv.es',
-                cruise=cruise1,
-                notes='Solicito información detallada sobre el embarque en Station-9101460.'
+                cruise=cruise2,
+                notes='Quisiera saber si las camaras de criogenizacion para el viaje a Kepler-452b tienen conexion para cargar el movil.'
             )
             self.stdout.write(self.style.SUCCESS('InfoRequest de prueba creada.'))
 
-        self.stdout.write(self.style.SUCCESS('Datos iniciales cargados correctamente (3 destinos, 2 cruceros).'))
+        self.stdout.write(self.style.SUCCESS('Datos iniciales cargados correctamente (Station-9101460, Kepler-452b, Europa y 2 cruceros).'))

@@ -20,14 +20,18 @@ client = Client()
 
 print("=== INICIANDO ENSAYO LOCAL DE PRODUCCIÓN (DEBUG=False, WhiteNoise) ===")
 
+from relecloud.models import Destination
+station = Destination.objects.filter(name__startswith='Station').first() or Destination.objects.first()
+pk = station.pk if station else 1
+
 checks = [
     ('/', 200, 'Home page'),
     ('/about/', 200, 'About page with student ID'),
     ('/destinations/', 200, 'Destinations list'),
-    ('/destination/1/', 200, 'Destination detail (Station-9101460)'),
+    (f'/destination/{pk}/', 200, f'Destination detail ({station.name if station else "Station"})'),
     ('/destination/add/', 200, 'Destination add form'),
-    ('/destination/1/update/', 200, 'Destination update form'),
-    ('/destination/1/delete/', 200, 'Destination delete confirmation'),
+    (f'/destination/{pk}/update/', 200, 'Destination update form'),
+    (f'/destination/{pk}/delete/', 200, 'Destination delete confirmation'),
     ('/info_request/', 200, 'Info request form'),
     ('/nonexistent-test-404/', 404, 'Clean 404 page'),
 ]
